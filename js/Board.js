@@ -86,7 +86,7 @@ const start = () => {
  * Detiene el juego 
  */
 
-function stop() {
+const stop = () => {
    
 if(points1 === 11|| points2 === 11){
   clearInterval(game);
