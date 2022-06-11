@@ -1,8 +1,8 @@
 import { Ball } from "./Ball.js";
 import { Bar } from "./Bar.js";
 
-let bal = new Ball(20, 20, "tomato", "red");
-let playerOne = new Bar(20, 100, "red", "white");
+let bal = new Ball(20, 20, "tomato", "white");
+let playerOne = new Bar(20, 100, "green", "white");
 let playerTwo = new Bar(20, 100, "yellow", "white");
 let width = document.documentElement.clientWidth - bal.move;
 let height = document.documentElement.clientHeight - bal.move;
@@ -53,7 +53,7 @@ export const init = () => {
   let col1 = bal.collidePlayer1(bar, balDom);
   let col2 = bal.collidePlayer2(balDom, bar1, width);
   bal.checkStateBall(balDom, height, col1, col2);
-  bal.checkIfLost(balDom, width, add1, add2);
+  bal.checkIfLost(balDom, width, add1, add2, stop);
    gol1.innerText = points1;
   gol2.innerText = points2;
   
@@ -87,8 +87,16 @@ const start = () => {
  */
 
 function stop() {
+   
+if(points1 === 11|| points2 === 11){
   clearInterval(game);
   document.body.style.background = "#f00";
+  
+  if(points1 > points2){
+     document.body.innerHTML = `<h1>"Gano Jugador 1"</h1>`;
+  }else{document.body.innerHTML = `<h1>"Gano Jugador 2"</h1>`;}
+  
+  }
 }
 
 const add1 = () => {

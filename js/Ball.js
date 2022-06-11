@@ -92,10 +92,9 @@
 
     if(col2){
         baldom.direction = 2
-        if(baldom.state == 3) baldom.state = 1;
-        if(baldom.state == 4) baldom.state = 2;
         if(baldom.state == 1) baldom.state = 3;
         if(baldom.state == 2) baldom.state = 4;
+       
     }else if(col1){
         baldom.direction = 1;
         if(baldom.state == 3) baldom.state = 1;
@@ -117,16 +116,27 @@
  * @param {*} width ancho del body del documento html.
  * @param {*} stop metodo que detiene el juego.
  */
-   checkIfLost(baldom, width, add1, add2){
+   checkIfLost(baldom, width, add1, add2, stop){
     if(baldom.offsetLeft >= width){
-        baldom.state = Math.floor(Math.random()*4)
+        baldom.direction = 2
+        if(baldom.state == 1) baldom.state = 3;
+        if(baldom.state == 2) baldom.state = 4;
+    
+       
         add1();
+        stop();
     }
     if(baldom.offsetLeft <= 0){
-        baldom.state=baldom.state = Math.floor(Math.random()*4)
+        baldom.direction = 1;
+        if(baldom.state == 3) baldom.state = 1;
+        if(baldom.state == 4) baldom.state = 2;
+        
         add2();
-        console.log("punto player 2");
+        stop();
+        
     }
+
+    
 }
 
 
