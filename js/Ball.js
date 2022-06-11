@@ -1,4 +1,4 @@
- class Ball {
+ export class Ball {
  constructor(width, height, color, borderColor) {
     this.width = width;
     this.height = height;
@@ -12,6 +12,8 @@
  }
   setAtributes(baldom){
     
+
+    
     baldom.style.width = this.width + 'px';
     baldom.style.height = this.height + 'px';
     baldom.style.backgroundColor = this.color;
@@ -19,7 +21,7 @@
 
   }
   moveBall(baldom){
-    switch(this.state){
+    switch(baldom.state){
         case 1: 
             baldom.style.left = (baldom.offsetLeft + this.move) +"px";
             baldom.style.top = (baldom.offsetTop + this.move) +"px";
@@ -39,6 +41,45 @@
     }
 
   }
+  collidePlayer1(bar, baldom){
+    if(baldom.offsetLeft <= (bar.clientWidth) &&
+           baldom.offsetTop >= bar.offsetTop &&
+           baldom.offsetTop <= (bar.offsetTop + bar.clientHeight)){
+            return true;
+        }
+
+        return false;}
+collidePlayer2(baldom, bar, width){
+    if(baldom.offsetLeft >= (width-bar.clientWidth) &&
+           baldom.offsetTop >= bar.offsetTop &&
+           baldom.offsetTop <= (bar.offsetTop + bar.clientHeight)){
+            return true;
+        }
+        return false;
+
+}
+  
+   checkStateBall(baldom, height, col2, col1){
+
+    if(col2){
+        this.direction = 2;
+        if(baldom.state == 1) baldom.state = 3;
+        if(baldom.state == 2) baldom.state = 4;
+    }else if(col1){
+        this.direction = 1;
+        if(baldom.state == 3) baldom.state = 1;
+        if(baldom.state == 4) baldom.state = 2;
+    }
+
+    if(this.direction ===1){
+        if(baldom.offsetTop >= height)baldom.state=2;
+        else if(baldom.offsetTop <=0 ) baldom.state=1;
+    }else{
+        if(baldom.offsetTop >= height) baldom.state=4;
+        else if(baldom.offsetTop <=0 ) baldom.state=3;
+    }
+    console.log(col1);
+}
    checkIfLost(baldom){
     if(baldom.offsetLeft >= width){
         stop();
@@ -54,12 +95,3 @@
 
 }
 
-
-function start() {
- let balDom = document.querySelector("#ball");
- let bal =  new Ball(30, 30, 'tomato', 'red');
- console.log("hola");
- bal.setAtributes(balDom);
- bal.moveBall(balDom);
-}
-//setInterval( start, 100);
