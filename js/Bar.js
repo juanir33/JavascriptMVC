@@ -5,14 +5,14 @@ export class Bar{
         this.color = color;
         this.borderColor = borderColor;
         this.keyPress = false;
-        this.keyCode= null;
+        this.key= null;
         this.move= 20;
     }
     setAtributes(bardom){
-        bardom.background = this.color;
-        bardom.borderColor = this.borderColor;
-        bardom.width= this.width;
-        bardom.height= this.height;
+        bardom.style.backgroundColor = this.color;
+        bardom.style.borderColor = this.borderColor;
+        bardom.style.width= this.width + "px";
+        bardom.style.height= this.height + "px";
     }
     moveBar(key, key2, bardom, height){
         if(this.keyPress){
@@ -22,6 +22,9 @@ export class Bar{
                 bardom.style.top = (bardom.offsetTop + this.move) + "px";
             
         }
+    
         
     }
+    
+    
 }

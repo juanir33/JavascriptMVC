@@ -16,12 +16,7 @@ body, html{
     border-radius: 50%;
 }
 
-.bar{
-    width: 20px;
-    height: 100px;
-    background: #000;
-    border: 2px solid #fff;
-}
+
 
 #bar1{
     top: 20px;
