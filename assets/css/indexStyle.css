@@ -33,3 +33,25 @@ body, html{
     border-right: #fff dashed 5px;
     height: 100%;  
 }
+.point1{
+    color: brown;
+    font-size: 2.5em;
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    left: 42%;
+    background: #fff;
+    width: 50px;
+    height: 50px;
+}
+.point2{
+    color: blue;
+    font-size: 2.5em;
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    left: 55%;
+    background: #fff;
+    width: 50px;
+    height: 50px;
+}
