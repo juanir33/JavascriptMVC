@@ -5,6 +5,13 @@ body, html{
     text-align: center;
     
 }
+.title{ 
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
 .container{
     position: relative;
     width: 800px;
@@ -32,6 +39,7 @@ body, html{
     position: absolute;
 }
 #line{
+    z-index: 1;
     width:50%;
     border-right: #fff dashed 5px;
     height: 100%;  

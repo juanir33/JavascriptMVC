@@ -14,6 +14,8 @@ let gol2 = document.querySelector(".point2");
 let game;
 let points1 = 0;
 let points2 = 0;
+let title1 = document.querySelector(".title");
+console.log(gol2);
 
 /**
  * Evento del documento, determina si la tecla buscada se apreto. 
@@ -69,7 +71,8 @@ export const board = () => {
   bal.setAtributes(balDom);
   balDom.direction = 1;
   balDom.state = 1;
- 
+  
+  
 
   
 };
@@ -78,6 +81,10 @@ export const board = () => {
  */
 const start = () => {
     board();
+    console.log(title1);
+    setTimeout(()=>{
+       title1.textContent = "";
+    }, 5000)
     game = setInterval(init, 100); 
 }
 
