@@ -1,5 +1,5 @@
-import { Ball } from "./Ball.js";
-import { Bar } from "./Bar.js";
+import { Ball } from "../model/Ball.js";
+import { Bar } from "../model/Bar.js";
 
 let bal = new Ball(20, 20, "tomato", "white");
 let playerOne = new Bar(20, 100, "green", "white");
